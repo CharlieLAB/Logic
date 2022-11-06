@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8"/>
+        <title>機器學習筆記</title>
+        <link rel="stylesheet" href="D:\html\title_color.css"/>
+    </head>
+    <body>
+        <ul>
+            <li><a href="D:\html\table_of_contents.html">返回目錄</a><br/></li>
+        </ul>
+        <hr/>
+        
+        <h1>機器學習筆記</h1>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/Ye018rCVvOo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <h1>LOSS損失函數</h1>
+        <h2 style="background-color: gray;">Linear model</h2>
+        <img width="500"  src="Loss.png" alt="loss">
+        <p>LOSS越小越好   L(b,w)  |e1是誤差值|  ， LOSS的高低取決於誤差值(e)的平均   e1 e2 e3是何來? 取決預測後的y - y^ 得到</p>
+        <p>b,w則是影響y - y^ 間接影響得出的e1 e2 e3 並影響誤差值  並能知道LOSS大小</p>
+        <span>b (bias 偏差值)</span><span>w weight __w,b皆未知數，都是透過訓練得知</span>
+        <hr/>
+
+        <h2>Piecewise Linear Curves</h2>
+        <p>Piecewise Linear Curves 由多個藍色線段組成</p>
+
+        <img width="400" src="Piecewise_Linear_Curves.png">
+        <img width="400" src="Piecewise_Linear_Curves_2.png">
+        <img width="400" src="relu.png">
+        <hr/>
+
+
+        <h2 >sigmoid_Function</h2>
+        <img width="400" src="sigmoid_w_b_c.png">
+        <img width="400" src="sigmoid_Function.png">
+        <p>w 改變坡度，b 左右移動，c 改變高度</p>
+        <hr/>
+        <img width="700" src="sigmoidcbw.png">
+        <br/>
+        <hr/>
+
+        <img width="400" src="unknown_parameters.png">
+        <br/>
+        <br/>
+        <hr/>
+        <h2>Loss沒辦法降低 是因為?</h2>
+        <img width="400" src="loos_issue.png">
+        <p>先分清楚是哪一個問題，一個是因為model不夠大造成model bias</p>
+        <li>如果是model bias就把model變大</li>
+        <hr/>
+
+        <br/>
+        <img width="600" src="optimization_issue.png">
+        <br/>
+        <br/>
+        <br/>
+        <p>能看出是因為optimization的問題，因56層的前20層只要複製下方20層方式 就能達到相同水平。</p>
+        <p>如果你的高層數訓練的loss比低層數的loss還高，很有可能是出在optimization的問題</p>
+        <p>如果是model bias就把model變大</p>
+        <br/>
+        <br/>
+        <img width="600" src="optimization_issue_solve.png">
+        <hr/>
+        <p><b>training 的loss小 ，而testing的loss大才叫做overfitting</b></p>
+        <hr/>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/WeHM2xpYQpw?start=1032" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <hr/>
+
+        <h2>batchsize多寡的比較</h2>
+        <img width="600" src="batchsize.png">
+        <br/>
+        <h2>Adam :RMS Prop + 動量</h2>
+        <p>RMS Prop是指:會依據gradien的坡度大小更動你的初始學習率，坡度越大學習越小 ，坡度越小學習越大</p>
+        <img width="600" src="adam.png">
+        <h2>Momentum 理解</h2>
+        <h3>梯度下降+Momentum(動量)</h3>
+        <p>會依據g1與原m1(藍虛線)的方向折衷進行下一步的前進(實藍線)</p>
+        <p>原本照著gradien計算出來的方向移動，加入monentum就是將過去gradien的加總當作下一個updata這就是monentum</p>
+        <img width="600" src="gradien_descent_add_momentum.png"><hr/>
+        
+        <h3>RMS Prop</h3>
+        <p>RMS Prop是指:會依據gradien的坡度大小更動你的初始學習率，坡度越大學習越小 ，坡度越小學習越大</p>
+        <img width="500" src="RMSprop.png"><hr/>
+        
+        <h3>adam最終式，有很多方法但都脫不了去求圖上的值</h3>
+        <img width="600" src="summary_of_optimization.png">
+        <hr/>
+
+        <h2>L1,L2</h2>
+        <img width="500" src="L1L2.jpg">
+        <img width="500" src="crossentropy.png">
+
+        <hr/>
+        <h2>神羅天征 將error surface崎嶇 炸的平滑一點</h2>
+        <h3>batch Normalization其中一個辦法</h3>
+
+        <h2>batch Normalization</h2>
+        <h3>train的 batch normalization</h3>
+        <img width="600" src="train_batch_nor.png">
+        
+
+        <hr/>
+        <h2>梯度下降</h2>
+        <p><b>(Gradient descent)梯度更新法有很多種，其中一種是一次使用全部的訓練資料計算損失函數的梯度，並更新一次權重，如果要更新N次的話
+            ，就要計算整個訓練資料N遍，這方法沒效率。因此出現隨機梯度下降法(SGD)一次計算一個批次(batch)資料的梯度職並更新一次權重。adam優化器
+            融合AdaGrad+Momentum。  AdaGrad會根據梯度來調整learning rate。 Momentum則是加入原始的動量去運算
+        </b></p><hr/>
+
+        
+        <h2>overfitting</h2>
+        <p><b>指訓練的模型對驗證資料集(validation)的表現很差，但對訓練資料集(training)的表現很好，訓練資料的損失值持續下降，但是驗證資料的損
+            失值逐漸上升。</b></p>
+            <p>overfitting的可能性是因為模型太過複雜而資料量過少，所以將僅有的資料訓練過度，在預測時可能執著在某些特徵上__(個人認為)</p>
+        <p><b>解決方式</b></p>
+        <ul>
+            <li>增加訓練資料</li>
+            <li>簡化模型</li>
+            <li>dropout</li>
+        </ul>
+        <h3>三種在不增加資料量的條件下防止過擬合的方法</h3>
+        <ul>
+            <li>縮減模型大小 </li>
+            <li>加入權重正規化 (書本P76頁 黃世嘉第三版</li>
+            <li>Dropout</li>
+        </ul>
+        <span style="background-color:red ;">縮減模型大小</span> : 代表模型的參數量減少，參數量少的模型無法輕易擬合所有訓練資料</p><br/>
+        <span style="background-color:red ;">加入權重正規化 </span> : L1、L2核心思想都是透過限制權重大小解決過擬合問題 (書本P76頁</p><br/>
+        <span style="background-color:red ;">Dropout</span> : 捨棄模型參數，比例自行調整，每次訓練會隨機捨棄模型中部份參數，dropout僅在訓練時啟用，在測試時則不使用Dropout功能，</p>
+        <p>Dropout 簡單來說神經網路在每次訓練都使用不同的神經元去做學習，如此將可以有效避免神經網路太過依賴局部特徵。</p>
+        
+        <h2>為何訓練前要用標準化?</h2>
+        <a href="https://www.gushiciku.cn/pl/2ozV/zh-tw">網站</a>
+        <p>在基於距離的模型中，資料標準化用於預防範圍較大的特徵對預測結果進行較大的影響。不過使用標準化的原因不僅僅只有這一個，對於不同的模型會有不同的原因。</p>
+        
+        <h2>為何要隨機初始化權重</h2>
+        <p>在訓練當中正向傳播與反向傳播為保持梯度穩定，如w權重過大會出現梯度爆炸而梯度趨近於0則梯度消失</p>
+        <p>w*0.001  使網路不對稱，不對稱才能使每個特徵值運算不同</p>
+        <p>初始化不能乘0如w*0那每個特徵運算都是一樣的</p>
+        <hr/>
+        <p>而*0.01使得W很小是因为，可以参照激活函数sigmoid和tanh，当W很大，用W * X+b=a得到的a很大，再用对a用激活函数如sigmoid(a)，由于a很大了，sigmoid(a)中的a会趋向正无穷或负无穷，则函数值sigmoid(a)趋向于一个平缓的趋势，在梯度下降的时候计算的梯度很小，会导致学习的很慢，故使得W取一个很小的值(激活函数图sigmoid,tanh在网上可以很容易找到)。不过在某些情况下不取0.01.会取其他的比较小的值</p>
+        <hr/>
+        <h2>model.add 與 layers....</h2>
+        <p>model.add 的add 可表達成將層的特徵(結果)與層的特徵(結果)進行連結。</p>
+        <a href="https://cloud.tencent.com/developer/article/1734444">Keras中的两种模型:Sequential和Model用法</a>
+        <h2>可分離捲積 Separable Convolution 與 深度可分離捲積</h2>
+        <a href="https://paddlepedia.readthedocs.io/en/latest/tutorials/CNN/convolution_operator/Separable_Convolution.html">Separable Convolution and DepthwiseConv</a>
+        
+        
+
+
+    </body>
+</html>
