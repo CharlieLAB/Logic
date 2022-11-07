@@ -1,6 +1,7 @@
  @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Fira+Sans+Extra+Condensed:ital,wght@1,700&family=Philosopher:wght@700&display=swap");
 
 body{
+    background-color: #fff5da;
     font-family: "Noto sans TC", sans-serif;
     letter-spacing: 1px;
     color: #333;
