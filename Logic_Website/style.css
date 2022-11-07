@@ -123,3 +123,48 @@ transition: all 0.2s;
     justify-content: space-between;
     align-items: center;
   }
+
+/* .primary__link-button__left{
+
+    background-color: #000;
+    border-radius: 5px;
+    padding: 20px 20px;
+    color: white;
+    letter-spacing: 2px;
+    
+    display: block;  
+    margin:auto;
+    align-items: center;
+} */
+
+.box{
+    width: 500px;
+    border: 1px solid #f00;
+    margin: auto;
+    height: auto;
+    padding: 50px 0;
+  }
+
+.container {
+    border-radius: 5px;
+    background-color: #3D7878;
+    color: white;
+    padding: 10px 20px;
+    letter-spacing: 2px;
+    width: 1200px; 
+    margin:0 auto;
+
+}
+
+.box{
+    width: 500px;
+    border: 1px solid #f00;
+    margin: auto;
+      height: auto;
+    padding: 50px 0;
+  }
+.content{
+width: 400px;
+background: #ccc;
+margin: auto;
+}
